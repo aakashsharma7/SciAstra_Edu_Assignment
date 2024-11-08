@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciAstra Platform</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <h1>SciAstra</h1>
+      </div>
+      <div class="nav-links">
+        <a href="#courses" class="nav-link">
+          <i class="fas fa-graduation-cap"></i>
+          Courses
+        </a>
+        <a href="#blogs" class="nav-link">
+          <i class="fas fa-blog"></i>
+          Blogs
+        </a>
+        <a href="/about.html" class="nav-link">
+          <i class="fas fa-info-circle"></i>
+          About
+        </a>
+        <a href="/contact.html" class="nav-link">
+          <i class="fas fa-envelope"></i>
+          Contact
+        </a>
+      </div>
+      <div class="nav-right">
+        <div class="search-bar">
+          <input type="text" placeholder="Search courses...">
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <div class="user-section">
+          <div id="user-menu" class="user-menu">
+            <button id="user-button" class="user-button">
+              <span id="user-initial">?</span>
+            </button>
+            <div id="user-dropdown" class="user-dropdown">
+              <div id="user-info" class="user-info">
+                <i class="fas fa-user-circle user-icon"></i>
+                <p id="username-display">Not logged in</p>
+              </div>
+              <div class="dropdown-links">
+                <a href="/my-courses.html" class="dropdown-link">
+                  <i class="fas fa-book-reader"></i>
+                  My Courses
+                </a>
+                <button id="logout-button" class="logout-btn">
+                  <i class="fas fa-sign-out-alt"></i>
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Unlock Your Potential with SciAstra</h1>
+        <p>Expert-led courses for IIT-JEE, NEET, and more</p>
+        <a href="#courses" class="cta-button">Explore Courses</a>
+      </div>
+    </section>
+
+    <!-- Featured Courses Section -->
+    <section id="courses" class="courses-section">
+      <div class="section-header">
+        <h2>Featured Courses</h2>
+        <p>Discover our most popular courses with special discounts</p>
+      </div>
+      <div id="course-container">
+        <!-- Courses will load here dynamically -->
+      </div>
+    </section>
+
+    <!-- Latest Blogs Section -->
+    <section id="blogs" class="blogs-section">
+      <div class="section-header">
+        <h2>Latest from Our Blog</h2>
+        <p>Stay updated with educational insights and success stories</p>
+      </div>
+      <div id="blog-container">
+        <!-- Blogs will load here dynamically -->
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <h3>Expert Instructors</h3>
+          <p>Learn from experienced faculty from top institutions</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-clock"></i>
+          <h3>Flexible Learning</h3>
+          <p>Study at your own pace with lifetime access</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Track Progress</h3>
+          <p>Monitor your improvement with detailed analytics</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-users"></i>
+          <h3>Community Support</h3>
+          <p>Join a community of dedicated learners</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About SciAstra</h3>
+        <p>Empowering students to achieve their dreams through quality education. Join our community of successful
+          learners.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#courses"><i class="fas fa-chevron-right"></i> Our Courses</a></li>
+          <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="#blogs"><i class="fas fa-chevron-right"></i> Blog</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Study Materials</h3>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-file-pdf"></i> IIT-JEE Resources</a></li>
+          <li><a href="#"><i class="fas fa-file-pdf"></i> NEET Materials</a></li>
+          <li><a href="#"><i class="fas fa-book"></i> Sample Papers</a></li>
+          <li><a href="#"><i class="fas fa-graduation-cap"></i> Success Stories</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <p><i class="fas fa-phone"></i> +91 1234567890</p>
+          <p><i class="fas fa-envelope"></i> info@sciastra.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> Bhubaneswar, Odisha</p>
+          <p><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 SciAstra Education. All rights reserved. | Privacy Policy | Terms of Service</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

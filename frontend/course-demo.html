@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Demo - SciAstra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h2>Course Demo</h2>
+            <div id="course-title"></div>
+        </div>
+        <div class="demo-content">
+            <div class="demo-video">
+                <video controls>
+                    <source src="/assets/demo-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="demo-info">
+                <h3>Welcome to Your Course!</h3>
+                <p>This is a preview of what you'll be learning. The full course content will be available shortly.</p>
+                <div id="course-details"></div>
+            </div>
+        </div>
+        <div class="demo-footer">
+            <p class="redirect-notice">You will be redirected to the home page in <span id="countdown">5</span> seconds</p>
+            <button onclick="window.location.href='/'" class="home-btn">Go to Home</button>
+        </div>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+    <script src="course-demo.js"></script>
+</body>
+</html> 

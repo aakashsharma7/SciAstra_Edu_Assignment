@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SciAstra</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>SciAstra</h1>
+            </div>
+            <div class="nav-links">
+                <a href="/#courses" class="nav-link">
+                    <i class="fas fa-graduation-cap"></i>
+                    Courses
+                </a>
+                <a href="/#blogs" class="nav-link">
+                    <i class="fas fa-blog"></i>
+                    Blogs
+                </a>
+                <a href="/about.html" class="nav-link active">
+                    <i class="fas fa-info-circle"></i>
+                    About
+                </a>
+                <a href="/contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    Contact
+                </a>
+            </div>
+            <div class="nav-right">
+                <div class="user-section">
+                    <div id="user-menu" class="user-menu">
+                        <button id="user-button" class="user-button">
+                            <span id="user-initial">?</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="about-container">
+        <div class="about-hero">
+            <h1>About SciAstra</h1>
+            <p>Empowering students to achieve excellence in science education</p>
+        </div>
+        
+        <section class="about-section">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>Our Mission</h2>
+                    <p>To provide quality education and guidance to students aspiring for top science institutions in India.</p>
+                    
+                    <h2>Our Vision</h2>
+                    <p>To become the leading platform for science education and create a community of successful learners.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <h3>10,000+</h3>
+                            <p>Students</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>500+</h3>
+                            <p>Courses</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-star"></i>
+                            <h3>4.8/5</h3>
+                            <p>Rating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html> 

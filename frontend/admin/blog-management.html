@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Management - SciAstra Admin</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><i class="fas fa-blog"></i> Blog Management</h1>
+            <button id="new-blog-btn" class="primary-btn">
+                <i class="fas fa-plus"></i> New Blog Post
+            </button>
+        </div>
+
+        <div class="blog-filters">
+            <select id="status-filter">
+                <option value="all">All Status</option>
+                <option value="draft">Draft</option>
+                <option value="published">Published</option>
+                <option value="scheduled">Scheduled</option>
+            </select>
+            <select id="category-filter">
+                <option value="all">All Categories</option>
+                <option value="science">Science</option>
+                <option value="education">Education</option>
+                <option value="news">News</option>
+            </select>
+            <input type="text" id="search-blogs" placeholder="Search blogs...">
+        </div>
+
+        <div id="blogs-table" class="admin-table"></div>
+    </div>
+
+    <!-- Blog Editor Modal -->
+    <div id="blog-editor-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">New Blog Post</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form id="blog-form">
+                <div class="form-group">
+                    <input type="text" id="blog-title" placeholder="Blog Title" required>
+                </div>
+                <div class="form-group">
+                    <select id="blog-category" required>
+                        <option value="">Select Category</option>
+                        <option value="science">Science</option>
+                        <option value="education">Education</option>
+                        <option value="news">News</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="blog-content" placeholder="Blog Content" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Publish Date</label>
+                        <input type="datetime-local" id="publish-date">
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select id="blog-status" required>
+                            <option value="draft">Draft</option>
+                            <option value="published">Published</option>
+                            <option value="scheduled">Scheduled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="save-btn">Save Blog Post</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="blog-management.js"></script>
+</body>
+</html> 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - SciAstra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-card">
+            <div class="success-icon">✓</div>
+            <h2>Payment Successful!</h2>
+            <p>Your course enrollment is now complete.</p>
+            <div id="order-details"></div>
+            <div class="success-actions">
+                <a href="/" class="home-btn">Back to Home</a>
+                <a href="/my-courses.html" class="course-btn">Go to My Courses</a>
+            </div>
+        </div>
+    </div>
+    <script src="payment-success.js"></script>
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html> 

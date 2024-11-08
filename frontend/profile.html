@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - SciAstra</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>SciAstra</h1>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="/#courses" class="nav-link">
+                    <i class="fas fa-graduation-cap"></i>
+                    Courses
+                </a>
+                <a href="/#blogs" class="nav-link">
+                    <i class="fas fa-blog"></i>
+                    Blogs
+                </a>
+            </div>
+            <div class="nav-right">
+                <div class="user-section">
+                    <div id="user-menu" class="user-menu">
+                        <button id="user-button" class="user-button">
+                            <span id="user-initial">?</span>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown">
+                            <div class="user-info">
+                                <i class="fas fa-user-circle user-icon"></i>
+                                <p id="username-display">Not logged in</p>
+                            </div>
+                            <div class="dropdown-links"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <span id="profile-initial"></span>
+            </div>
+            <div class="profile-info">
+                <h1 id="profile-name"></h1>
+                <p id="profile-email"></p>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div class="profile-section">
+                <h2>My Courses</h2>
+                <div id="enrolled-courses" class="enrolled-courses">
+                    <!-- Courses will be loaded here -->
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <h2>Account Settings</h2>
+                <form id="profile-form" class="profile-form">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="email" name="email" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input type="password" id="new-password" name="new-password" placeholder="Leave blank to keep current password">
+                    </div>
+                    <button type="submit" class="save-btn">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Load footer
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+
+        // Load profile data
+        document.addEventListener('DOMContentLoaded', () => {
+            const userData = localStorage.getItem('user');
+            if (!userData) {
+                window.location.href = '/login.html';
+                return;
+            }
+
+            const user = JSON.parse(userData);
+            document.getElementById('profile-initial').textContent = user.username.charAt(0).toUpperCase();
+            document.getElementById('profile-name').textContent = user.username;
+            document.getElementById('profile-email').textContent = user.email;
+            document.getElementById('username').value = user.username;
+            document.getElementById('email').value = user.email;
+
+            // Load enrolled courses
+            loadEnrolledCourses();
+        });
+
+        function loadEnrolledCourses() {
+            fetch('http://localhost:5001/api/user/courses', {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+            .then(response => response.json())
+            .then(courses => {
+                const coursesContainer = document.getElementById('enrolled-courses');
+                if (courses.length === 0) {
+                    coursesContainer.innerHTML = '<p>No courses enrolled yet.</p>';
+                    return;
+                }
+
+                coursesContainer.innerHTML = courses.map(course => `
+                    <div class="enrolled-course">
+                        <h3>${course.title}</h3>
+                        <p>${course.progress || 0}% completed</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: ${course.progress || 0}%"></div>
+                        </div>
+                        <a href="/course.html?id=${course.id}" class="continue-btn">Continue Learning</a>
+                    </div>
+                `).join('');
+            })
+            .catch(error => {
+                console.error('Error loading courses:', error);
+                document.getElementById('enrolled-courses').innerHTML = 
+                    '<p>Failed to load enrolled courses. Please try again later.</p>';
+            });
+        }
+    </script>
+</body>
+</html> 

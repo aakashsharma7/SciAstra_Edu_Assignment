@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - SciAstra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Create Account</h2>
+        <form id="register-form" class="auth-form">
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Password" required minlength="6">
+            </div>
+            <div class="form-group">
+                <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+            </div>
+            <button type="submit" class="auth-btn">Register</button>
+        </form>
+        <p class="auth-footer">
+            Already have an account? <a href="/login.html">Login</a>
+        </p>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html> 

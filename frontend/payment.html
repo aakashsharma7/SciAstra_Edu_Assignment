@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Payment - SciAstra</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>SciAstra</h1>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="/#courses" class="nav-link">
+                    <i class="fas fa-graduation-cap"></i>
+                    Courses
+                </a>
+                <a href="/about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    About
+                </a>
+                <a href="/contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    Contact
+                </a>
+            </div>
+            <div class="nav-right">
+                <div class="user-section">
+                    <div id="user-menu" class="user-menu">
+                        <button id="user-button" class="user-button">
+                            <span id="user-initial">?</span>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown">
+                            <div class="user-info">
+                                <i class="fas fa-user-circle user-icon"></i>
+                                <p id="username-display">Not logged in</p>
+                            </div>
+                            <div class="dropdown-links"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="payment-container">
+        <div class="payment-header">
+            <h2><i class="fas fa-lock"></i> Secure Checkout</h2>
+            <p>Complete your purchase securely</p>
+        </div>
+        <div class="payment-grid">
+            <div class="course-summary-section">
+                <div id="course-summary"></div>
+            </div>
+            <div class="payment-section">
+                <form id="payment-form">
+                    <div class="payment-methods">
+                        <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment_method" value="card">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Credit/Debit Card</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment_method" value="upi">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>UPI Payment</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment_method" value="netbanking">
+                                <i class="fas fa-university"></i>
+                                <span>Net Banking</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="payment-fields" class="payment-fields">
+                        <!-- Payment fields will be dynamically added here -->
+                    </div>
+                    <button type="submit" class="payment-submit-btn">
+                        <i class="fas fa-lock"></i>
+                        Pay Securely
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="script.js"></script>
+    <script src="payment.js"></script>
+    <script>
+        fetch('/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html> 
